@@ -4,10 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
-
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<title>Node.js - The latest in JavaScript awesome</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -36,22 +33,32 @@
 			<div class="slides">
 
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>All about node.js</h1>
+					<h3>A fast and sexy run time for everyone's favorite language.</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Created by <a href="http://samgreen.info">Sam Green</a> / <a href="http://twitter.com/greensamuelm">@greensamuelm</a></small>
 					</p>
 				</section>
 
 				<section>
-					<h2>Heads Up</h2>
+					<h2>What is Node?</h2>
 					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
+						Node is a server side implementation of Google's V8 JavaScript engine.
+					</p>
+					<p>
+						It's a blazing fast event driven framework. It's non-blocking and asynchronous.
+					</p>
+
+					<p>
+						Similar to <a href="http://twistedmatrix.com/trac/">Twisted</a> (Python) and <a href="http://rubyeventmachine.com/">EventMachine</a> (Ruby).
 					</p>
 
 					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						Handles I/O in a very special / unique way. I want to focus on these three terms throughout this presentation.
+
+Event Driven - This means that the program flow is altered from internal or external events. Other modern systems use polling and threads as an alternative to events.
+Non Blocking - This means that the program and the libraries it makes use of will not block the main event loop. If the main event loop is blocked, no events can be delivered until the current function returns control to the loop.
+Asynchronous - This means that program code is executed in parallel and in the background.
 					</aside>
 				</section>
 
@@ -88,45 +95,67 @@
 				</section>
 
 				<section>
-					<h2>Point of View</h2>
+					<h2>Node Architecture Overview</h2>
 					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+						<img src="#">
+					</p>
+					<p>
+						<ul>
+							<li>8000 lines of C</li>
+							<ul>
+								<li>libev - Event Loop</li>
+								<li>libeio - Thread Pool</li>
+							</ul>
+							<li>2000 lines of JavaScript</li>
+						</ul>
 					</p>
 				</section>
 
 				<section>
-					<h2>rvl.io</h2>
+					<h2>What about multi-core servers?</h2>
 					<p>
-						If you don't like writing slides in HTML you can use the online editor <a href="http://www.rvl.io" target="_blank">rvl.io</a>.
+						Aren't threads necessary to scale programs to multi-core computers?
+					</p>
+					<p>
+						You can start new processes via child_process.fork() these other processes will be scheduled in parallel.
+					</p>
+					<p>
+ 						For load balancing incoming connections across multiple processes use the cluster module.
 					</p>
 				</section>
 
 				<section>
-					<h2>Works in Mobile Safari</h2>
+					<h2>Who is using Node?</h2>
+				</section>
+
+				<section>
+					<h2>Synchronous JavaScript</h2>
+					<pre><code contenteditable>
+// This will BLOCK the event loop!
+// result - contains the query result
+var result = db.query("SELECT ...");
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Asynchronous JavaScript</h2>
+					<pre><code contenteditable>
+db.query("SELECT ...", function (err, result) {
+   // err - null, or contains error details
+   // result - contains the query result
+});
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>We're taught to write blocking code</h2>
+					<pre><code contenteditable>
+var result = db.query("SELECT ...");
+					</code></pre>
 					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
+						The problem with this approach is scalability. While this code is easy to write and simple to comprehend, it's almost impossible to scale.
 					</p>
 				</section>
-
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
@@ -305,35 +334,8 @@ function linkify( selector ) {
 				</section>
 
 				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://hakim.se/projects/reveal-js">Leave feedback on my site</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>It's free</h2>
-					<p>
-						reveal.js and <a href="http://www.rvl.io">rvl.io</a> are entirely free but if you'd like to support the projects you can donate below.
-						Donations will go towards hosting and domain costs.
-					</p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-						<input type="hidden" name="cmd" value="_donations">
-						<input type="hidden" name="business" value="hakim.elhattab@gmail.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="reveal.js / rvl.io">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="USD">
-						<input type="hidden" name="bn" value="PP-DonationsBF:btn_donate_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-					</form>
-				</section>
-
-				<section>
 					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
+					<h3>Sam Green / @greensamuelm</h3>
 				</section>
 
 			</div>
@@ -353,7 +355,7 @@ function linkify( selector ) {
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				theme: 'night', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
 
 				// Optional libraries used to extend on reveal.js
