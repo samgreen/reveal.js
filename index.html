@@ -113,7 +113,7 @@ Asynchronous - This means that program code is executed in parallel and in the b
 				</section>
 
 				<section>
-					<h1>nginx (Evented) vs. Apache (Threaded)</h1>
+					<h2>nginx (Evented) vs. Apache (Threaded)</h2>
 					<h3>Concurrent Connections</h3>
 					<p>
 						<img src="https://dl.dropbox.com/u/1180680/node-presentation/nginx-apache-reqs-sec.png">
@@ -121,7 +121,7 @@ Asynchronous - This means that program code is executed in parallel and in the b
 				</section>
 
 				<section>
-					<h1>nginx (Evented) vs. Apache (Threaded)</h1>
+					<h2>nginx (Evented) vs. Apache (Threaded)</h2>
 					<h3>Memory Usage</h3>
 					<p>
 						<img src="https://dl.dropbox.com/u/1180680/node-presentation/nginx-apache-memory.png">
@@ -173,6 +173,15 @@ var result = db.query("SELECT ...");
 						The problem with this approach is scalability. While this code is easy to write and simple to comprehend, it's almost impossible to scale.
 					</p>
 				</section>
+
+				<section>
+					<h2>Using the Node Package Manager</h2>
+					<h3>Your code is already written!</h3>
+					<p>
+						Node comes with a fantastic package manager called <a href="npmjs.org">npm</a>. By leveraging existing modules, you can significantly reduce your development time.
+					</p>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
@@ -186,38 +195,6 @@ var result = db.query("SELECT ...");
 							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
 							</section>
 					</script>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/night">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
 				</section>
 
 				<section>
@@ -348,6 +325,18 @@ function linkify( selector ) {
 						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take disctracting slides off the screen
 						during a presentation.
 					</p>
+				</section>
+
+				<section>
+					<h1>Sources</h1>
+					<ul>
+						<li>Node - JSConf 2009</li>
+						<ul>
+							<li>Video</li>
+						</ul>
+						<li>The C10K Problem</li>
+						<li>Scalable Network Programming - Felix von Leitner</li>
+					</ul>
 				</section>
 
 				<section>
